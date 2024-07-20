@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 import  seaborn as sns
 import preprocess, helper
-import plotly.figure_factory as ff
+import plotly.figure_factory as fact
 df = pd.read_csv('athlete_events.csv')
 region_df = pd.read_csv('noc_regions.csv')
 
@@ -123,7 +123,7 @@ if user_menu == 'Athelete wise Analysis':
     x2 = athelete_df[athelete_df['Medal'] == 'Gold']['Age'].dropna()
     x3 = athelete_df[athelete_df['Medal'] == 'Silver']['Age'].dropna()
     x4 = athelete_df[athelete_df['Medal'] == 'Bronze']['Age'].dropna()
-    fig = ff.create_distplot([x1, x2, x3, x4], ['Overall Age', 'Gold Medalist', 'Silver Medalist', 'Bronze Medalist'],show_hist=False, show_rug=False)
+    fig = fact.create_distplot([x1, x2, x3, x4], ['Overall Age', 'Gold Medalist', 'Silver Medalist', 'Bronze Medalist'],show_hist=False, show_rug=False)
     fig.update_layout(autosize=False, width=1000, height=600)
     st.title('Distribution of Age')
     st.plotly_chart(fig)
